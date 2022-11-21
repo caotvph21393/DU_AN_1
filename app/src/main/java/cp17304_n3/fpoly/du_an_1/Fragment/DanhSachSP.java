@@ -2,13 +2,21 @@ package cp17304_n3.fpoly.du_an_1.Fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import cp17304_n3.fpoly.du_an_1.R;
+import cp17304_n3.fpoly.du_an_1.adapter.danhsachsp_adapter;
+import cp17304_n3.fpoly.du_an_1.model.danh_sach_san_pham;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,15 +31,6 @@ public class DanhSachSP extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment DanhSachSP.
-     */
-    // TODO: Rename and change types and number of parameters
     public static DanhSachSP newInstance() {
         DanhSachSP fragment = new DanhSachSP();
 
@@ -44,10 +43,34 @@ public class DanhSachSP extends Fragment {
 
     }
 
+    private ListView id_lv_danhsachsp;
+    private ArrayList<danh_sach_san_pham> list = new ArrayList<>();
+    private danhsachsp_adapter adapter ;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_danh_sach_s_p, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        id_lv_danhsachsp = view.findViewById(R.id.id_lv_danhsachsp);
+
+        Themsp();
+
+        adapter = new danhsachsp_adapter(getActivity(),R.layout.layout_item_danhsachsp, list);
+        id_lv_danhsachsp.setAdapter(adapter);
+    }
+
+    private void Themsp(){
+        list.add(new danh_sach_san_pham("sóng", R.drawable.song, 20000));
+        list.add(new danh_sach_san_pham("chân trọng chính mính", R.drawable.sach_hay_tran_trong_chinh_minh, 30000));
+        list.add(new danh_sach_san_pham("sự kỳ diệu của nước sóng", R.drawable.su_ky_dieu_cua_nuoc_song, 40000));
+        list.add(new danh_sach_san_pham("đắc nhân tâm", R.drawable.dacnhantam, 50000));
+        list.add(new danh_sach_san_pham("sóng", R.drawable.song, 60000));
+        list.add(new danh_sach_san_pham("cuộc sống không giới hạn", R.drawable.cuoc_song_khong_gioi_han, 100000));
     }
 }

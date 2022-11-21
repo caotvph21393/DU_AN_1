@@ -12,6 +12,7 @@ public class ManHinhChao extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_man_hinh_chao);
+
         Handler handler=new Handler();
         handler.postDelayed(new Runnable() {
             @Override
