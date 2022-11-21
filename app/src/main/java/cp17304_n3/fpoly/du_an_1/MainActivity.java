@@ -15,6 +15,9 @@ import android.widget.FrameLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.sql.Connection;
+
+import cp17304_n3.fpoly.du_an_1.Datbase.DbSqlServer;
 import cp17304_n3.fpoly.du_an_1.Fragment.DangKi;
 import cp17304_n3.fpoly.du_an_1.Fragment.DangNhap;
 import cp17304_n3.fpoly.du_an_1.Fragment.DanhSachSP;
@@ -42,6 +45,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         manager.beginTransaction().replace(R.id.id_frameLayout,danhSachSP).commit();
         navigationView = findViewById(R.id.id_naviView);
         navigationView.setNavigationItemSelectedListener(this);
+        DbSqlServer dbSqlServer = new DbSqlServer();
+        Connection conn = dbSqlServer.openConnect();
 
 
     }
