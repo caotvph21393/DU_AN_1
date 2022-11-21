@@ -10,7 +10,7 @@ public class DbSqlServer {
     Connection connection;
     final String TAG = "zzzzzz";
     public Connection openConnect(){
-        String ip = "10.0.0.101", port = "1433", user = "sa", pass = "111111", db = "demo_bh";
+        String ip = "103.179.188.76", port = "1433", user = "CP17304_n3", pass = "Abc@123456789", db = "CP17304_n3";
         StrictMode.ThreadPolicy threadPolicy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(threadPolicy);
 
