@@ -3,10 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/DU_AN_1/app/src/main/res/layout/activity_man_hinh_chao.xml" value="0.1" />
-        <entry key="..\:/DU_AN_1/app/src/main/res/layout/fragment_dang_ki.xml" value="0.25416666666666665" />
-        <entry key="..\:/DU_AN_1/app/src/main/res/layout/fragment_gio_hang.xml" value="0.20380434782608695" />
-        <entry key="..\:/DU_AN_1/app/src/main/res/layout/giohang_listview_custom.xml" value="0.20380434782608695" />
+        <entry key="..\:/DA1/DU_AN_1/DU_AN_1/app/src/main/res/layout/activity_main.xml" value="0.2246376811594203" />
+        <entry key="..\:/DA1/DU_AN_1/DU_AN_1/app/src/main/res/layout/activity_man_hinh_chao.xml" value="0.2246376811594203" />
+        <entry key="..\:/DA1/DU_AN_1/DU_AN_1/app/src/main/res/layout/fragment_dang_ki.xml" value="0.2246376811594203" />
+        <entry key="..\:/DA1/DU_AN_1/DU_AN_1/app/src/main/res/layout/fragment_dang_nhap.xml" value="0.2246376811594203" />
+        <entry key="..\:/DA1/DU_AN_1/DU_AN_1/app/src/main/res/layout/fragment_danh_sach_don_hang.xml" value="0.2246376811594203" />
+        <entry key="..\:/DA1/DU_AN_1/DU_AN_1/app/src/main/res/layout/header_layout.xml" value="0.2246376811594203" />
+        <entry key="..\:/DA1/DU_AN_1/DU_AN_1/app/src/main/res/menu/menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/PRO1121_du_an_1/du_an/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/PRO1121_du_an_1/du_an/app/src/main/res/layout/activity_man_hinh_chao.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>
