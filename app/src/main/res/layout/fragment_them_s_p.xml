@@ -1,14 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment.ThemSP">
+    tools:context=".Fragment.ThemSP"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-</FrameLayout>
+            <TextView
+                android:textColor="#FF0000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ten Sách:"
+                tools:layout_editor_absoluteX="51dp"
+                tools:layout_editor_absoluteY="53dp" />
+
+            <EditText
+                android:layout_marginLeft="10dp"
+                android:id="@+id/TenSach"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="      " />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:textColor="#FF0000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tên Nhà Xuất Bản:"
+                tools:layout_editor_absoluteX="51dp"
+                tools:layout_editor_absoluteY="53dp" />
+
+            <EditText
+                android:layout_marginLeft="10dp"
+                android:id="@+id/TenNhaXuatBan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="      " />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:textColor="#FF0000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Giá Tiền:"
+                tools:layout_editor_absoluteX="51dp"
+                tools:layout_editor_absoluteY="53dp" />
+
+            <EditText
+                android:layout_marginLeft="10dp"
+                android:id="@+id/GiaTien"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="      " />
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:textColor="#FF0000"
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thêm Hình Ảnh:" />
+
+            <ImageView
+                android:layout_marginLeft="130dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/ic_mage"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:textColor="#FF0000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thông Tin Chi Tiết Về Cuốn Sách:"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp">
+                <TextView
+                    android:layout_width="369dp"
+                    android:layout_height="150dp"
+                    android:background="#A1DCC8C8"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="6"
+        android:layout_margin="10dp">
+
+        <Button
+
+            android:layout_weight="3"
+            android:id="@+id/DangSanPham"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đăng Sản Phẩm"
+            android:textSize="12dp"
+            />
+        <TextView
+            android:width="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/Huy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hủy" />
+
+        <TextView
+            android:width="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:layout_weight="2"
+            android:id="@+id/UpdateSanPham"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Update" />
+    </LinearLayout>
+
+</LinearLayout>
