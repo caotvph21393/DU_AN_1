@@ -5,4 +5,11 @@ public class ChitietDH {
     int idDonHang;
     int soluong;
     int gia;
+
+    public static class Boss {
+    int idBoss;
+    String hoten;
+    String user;
+    String pass;
+    }
 }
