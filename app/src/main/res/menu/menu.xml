@@ -2,31 +2,31 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/nav_TRangchu"
-        android:icon="@drawable/ic_android_black_24dp"
+        android:icon="@drawable/ic_baseline_home_24"
         android:title="Trang chủ" />
     <item
         android:id="@+id/nav_GioHang"
-        android:icon="@drawable/ic_android_black_24dp"
+        android:icon="@drawable/ic_baseline_shopping_bag_24"
         android:title="Giỏ hàng" />
     <item
         android:id="@+id/nav_themSP"
-        android:icon="@drawable/ic_android_black_24dp"
+        android:icon="@drawable/ic_baseline_note_add_24"
         android:title="Thêm sản phẩm" />
     <item
         android:id="@+id/nav_DanhsachDonHang"
-        android:icon="@drawable/ic_android_black_24dp"
+        android:icon="@drawable/ic_baseline_format_list_bulleted_24"
         android:title="́danh sách đơn hàng" />
     <item
         android:id="@+id/nav_ThongKe"
-        android:icon="@drawable/ic_android_black_24dp"
+        android:icon="@drawable/ic_baseline_bar_chart_24"
         android:title="́thống kê" />
     <item
         android:id="@+id/nav_DangNhap"
-        android:icon="@drawable/ic_android_black_24dp"
+        android:icon="@drawable/ic_baseline_login_24"
         android:title="Đăng nhập" />
     <item
         android:id="@+id/nav_DangKi"
-        android:icon="@drawable/ic_android_black_24dp"
+        android:icon="@drawable/ic_baseline_group_add_24"
         android:title="Đăng kí" />
 
 
