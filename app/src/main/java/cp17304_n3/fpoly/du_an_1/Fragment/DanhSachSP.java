@@ -72,6 +72,5 @@ public class DanhSachSP extends Fragment {
         list.add(new danh_sach_san_pham("đắc nhân tâm", R.drawable.dacnhantam, 50000));
         list.add(new danh_sach_san_pham("sóng", R.drawable.song, 60000));
         list.add(new danh_sach_san_pham("cuộc sống không giới hạn", R.drawable.cuoc_song_khong_gioi_han, 100000));
-        list.add(new danh_sach_san_pham("cuộc sống có giới hạn", R.drawable.cuoc_song_khong_gioi_han, 100000));
     }
 }
