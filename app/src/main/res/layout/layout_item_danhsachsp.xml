@@ -47,7 +47,7 @@
         <TextView
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:textColor="#39BAAF"
+            android:textColor="#C10E85"
             android:textSize="20sp"
             android:textStyle="bold"
             android:id="@+id/tv_item_danhsach_name"
