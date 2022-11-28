@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Tháng 1"
+        android:id="@+id/m1"/>
+    <item android:title="Tháng 2"
+        android:id="@+id/m2"/>
+    <item android:title="Tháng 3"
+        android:id="@+id/m3"/>
+    <item android:title="Tháng 4"
+        android:id="@+id/m4"/>
+    <item android:title="Tháng 5"
+        android:id="@+id/m5"/>
+    <item android:title="Tháng 6"
+
+
+        android:id="@+id/m6"/>
+    <item android:title="Tháng 7"
+        android:id="@+id/m7"/>
+    <item android:title="Tháng 8"
+        android:id="@+id/m8"/>
+    <item android:title="Tháng 9"
+        android:id="@+id/m9"/>
+    <item android:title="Tháng 10"
+        android:id="@+id/m10"/>
+    <item android:title="Tháng 11"
+        android:id="@+id/m11"/>
+    <item android:title="Tháng 12"
+        android:id="@+id/m12"/>
+</menu>

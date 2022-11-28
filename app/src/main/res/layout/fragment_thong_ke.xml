@@ -6,6 +6,71 @@
     android:layout_height="match_parent"
     tools:context=".Fragment.ThongKe">
 
+
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Doanh thu:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.075"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.54" />
+
+
+    <TextView
+        android:id="@+id/txtdoanhthuthang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="500000 Đ"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.371"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.539" />
+
+
+
+    <TextView
+        android:id="@+id/txtsodonhangthang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.367"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.452" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Số đơn hàng: "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.076"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.452" />
+
+    <ImageView
+        android:id="@+id/ivthang"
+        android:layout_width="29dp"
+        android:layout_height="28dp"
+        android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.646"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.375" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,14 +82,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.049" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="286dp"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="124dp"
-        tools:layout_editor_absoluteY="48dp">
-
-    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/txtngay"
@@ -42,7 +99,7 @@
         android:id="@+id/ivngay"
         android:layout_width="29dp"
         android:layout_height="28dp"
-        android:src="@drawable/ic_baseline_navigate_next_24"
+        android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.628"
@@ -54,7 +111,7 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tổng số đơn hàng: "
+        android:text="Số đơn hàng: "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.094"
@@ -63,13 +120,13 @@
         app:layout_constraintVertical_bias="0.119" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/txtsodonhangngay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="10"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.387"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.119" />
@@ -87,7 +144,7 @@
         app:layout_constraintVertical_bias="0.191" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/txtsosangdaban"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="50"
@@ -111,15 +168,51 @@
         app:layout_constraintVertical_bias="0.279" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/txtdoanhthungay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="50000"
+        android:text="50000 Đ"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.348"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.278" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Doanh thu tháng:"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.081"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.37" />
+
+    <TextView
+        android:id="@+id/txtthang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tháng 11"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.37" />
+
+    <TextView
+        android:id="@+id/txtmenuthang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.671"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.383" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
