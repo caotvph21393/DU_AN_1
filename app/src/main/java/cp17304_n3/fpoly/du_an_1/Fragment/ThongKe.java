@@ -31,6 +31,7 @@ public class ThongKe extends Fragment {
         ThongKe fragment = new ThongKe();
 
 
+
         return fragment;
     }
 
