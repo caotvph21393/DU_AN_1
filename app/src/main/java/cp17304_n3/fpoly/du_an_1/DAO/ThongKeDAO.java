@@ -92,6 +92,7 @@ public class ThongKeDAO {
         }catch (Exception e){
             Log.e("zzzz","số đơn hàng tháng:co loi truy van");
         }
+
         return soHoaDonThang;
     }
     public int getSoLuongSachDaBan(String ngay){
