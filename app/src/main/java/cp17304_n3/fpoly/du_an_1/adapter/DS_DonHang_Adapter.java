@@ -1,4 +1,4 @@
-package cp17304_n3.fpoly.du_an_1.Adapter;
+package cp17304_n3.fpoly.du_an_1.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,15 +10,15 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import cp17304_n3.fpoly.du_an_1.DTO.DanhSachDonHang;
+import cp17304_n3.fpoly.du_an_1.DTO.HoaDon;
 import cp17304_n3.fpoly.du_an_1.R;
 
 public class DS_DonHang_Adapter extends BaseAdapter {
     private Context context;
-private ArrayList<DanhSachDonHang> arrayList=new ArrayList<>();
+private ArrayList<HoaDon> arrayList=new ArrayList<>();
 private int layout;
 
-    public DS_DonHang_Adapter(Context context, ArrayList<DanhSachDonHang> arrayList, int layout) {
+    public DS_DonHang_Adapter(Context context, ArrayList<HoaDon> arrayList, int layout) {
         this.context = context;
         this.arrayList = arrayList;
         this.layout = layout;
@@ -48,8 +48,8 @@ convertView=inflate.inflate(layout,null);
     TextView tvTg=convertView.findViewById(R.id.item_thoiGian);
     TextView tvTt=convertView.findViewById(R.id.item_TrangThai);
 
-    imageView.setImageResource(arrayList.get(position).getImg());
-    tvTg.setText((CharSequence) arrayList.get(position).getNgayMua());
+    //imageViewi.setImageResource(arrayList.get(position).getImg());
+    tvTg.setText((CharSequence) arrayList.get(position).getThoiGian());
     tvTt.setText(arrayList.get(position).getTrangThai());
 }
         return convertView;

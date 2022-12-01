@@ -9,6 +9,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,12 +20,15 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import cp17304_n3.fpoly.du_an_1.DAO.SachDao;
+import cp17304_n3.fpoly.du_an_1.DTO.Sach;
 import cp17304_n3.fpoly.du_an_1.R;
 import cp17304_n3.fpoly.du_an_1.adapter.Photo_Adapter;
 import cp17304_n3.fpoly.du_an_1.adapter.danhsachsp_adapter;
-import cp17304_n3.fpoly.du_an_1.model.Photo;
-import cp17304_n3.fpoly.du_an_1.model.danh_sach_san_pham;
+import cp17304_n3.fpoly.du_an_1.DTO.Photo;
+import cp17304_n3.fpoly.du_an_1.DTO.danh_sach_san_pham;
 import me.relex.circleindicator.CircleIndicator;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -73,7 +77,7 @@ public class DanhSachSP extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         id_lv_danhsachsp = view.findViewById(R.id.id_lv_danhsachsp);
         id_viewpager = view.findViewById(R.id.id_viewpager);
-        circle_indiacator = view.findViewById(R.id.circle_indiacator);
+       circle_indiacator = view.findViewById(R.id.circle_indiacator);
 
         Themsp();
 
@@ -88,6 +92,15 @@ public class DanhSachSP extends Fragment {
         photo_adapter.registerDataSetObserver(circle_indiacator.getDataSetObserver());
 
         autoSLideImages();
+        SachDao sachDao=new SachDao();
+        List<Sach> list=new ArrayList<>();
+        list=sachDao.getAll();
+        for(int i = 0; i<list.size(); i++){
+            Sach objCat = list.get(i);
+            Log.d("zzzzz", "onCreate: phần tử thứ " + i + ":  id = " + objCat.getIdSach() + ", name = " + objCat.getTenSach());
+
+        }
+
     }
 
     private List<Photo> getListPhoto() {

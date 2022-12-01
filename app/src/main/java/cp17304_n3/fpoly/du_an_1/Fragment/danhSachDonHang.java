@@ -6,23 +6,33 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import cp17304_n3.fpoly.du_an_1.Adapter.DS_DonHang_Adapter;
-import cp17304_n3.fpoly.du_an_1.DTO.DanhSachDonHang;
+
+import cp17304_n3.fpoly.du_an_1.DAO.HoaDonDao;
+
+import cp17304_n3.fpoly.du_an_1.DTO.HoaDon;
+
 import cp17304_n3.fpoly.du_an_1.R;
+import cp17304_n3.fpoly.du_an_1.adapter.DS_DonHang_Adapter;
 
 
 public class danhSachDonHang extends Fragment {
     private ListView lv;
-    private ArrayList<DanhSachDonHang> arrayList=new ArrayList<>();
+    private ArrayList<HoaDon> arrayList=new ArrayList<>();
     private DS_DonHang_Adapter adapter;
 
+
+    HoaDonDao hoaDonDao=new HoaDonDao();
+
+    List<HoaDon> list =new ArrayList<>();
 
     public danhSachDonHang() {
         // Required empty public constructor
@@ -51,10 +61,20 @@ public class danhSachDonHang extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        lv=view.findViewById(R.id.lv_DanhSachDonHang);
-        arrayList.add(new DanhSachDonHang(R.drawable.ic_android_black_24dp,null,"đã thanh toán"));
+        lv=view.findViewById(R.id.lvHoaDon);
+        //arrayList.add(new HoaDon(R.drawable.ic_android_black_24dp,null,"đã thanh toán"));
         adapter=new DS_DonHang_Adapter(getContext(),arrayList,R.layout.item_danhsachdonhang);
         lv.setAdapter(adapter);
+
+
+
+        list=hoaDonDao.getAll();
+        for(int i = 0; i<list.size(); i++){
+            HoaDon objCat = list.get(i);
+
+            Log.d("aaa", "onCreate: phần tử thứ " + i + ":  id = " + objCat.getIdHoaDon() + ", name = " + objCat.getTrangThai());
+
+        }
 
 
     }

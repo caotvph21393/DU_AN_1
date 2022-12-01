@@ -11,7 +11,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import cp17304_n3.fpoly.du_an_1.R;
-import cp17304_n3.fpoly.du_an_1.model.danh_sach_san_pham;
+import cp17304_n3.fpoly.du_an_1.DTO.danh_sach_san_pham;
 
 public class danhsachsp_adapter extends BaseAdapter {
 

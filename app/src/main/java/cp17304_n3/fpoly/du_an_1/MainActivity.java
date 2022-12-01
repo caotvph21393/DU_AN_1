@@ -10,13 +10,17 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
 import java.sql.Connection;
+import java.util.List;
 
+import cp17304_n3.fpoly.du_an_1.DAO.SachDao;
+//import cp17304_n3.fpoly.du_an_1.DTO.Sach;
 import cp17304_n3.fpoly.du_an_1.Datbase.DbSqlServer;
 import cp17304_n3.fpoly.du_an_1.Fragment.DangKi;
 import cp17304_n3.fpoly.du_an_1.Fragment.DangNhap;
@@ -45,9 +49,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         manager.beginTransaction().replace(R.id.id_frameLayout,danhSachSP).commit();
         navigationView = findViewById(R.id.id_naviView);
         navigationView.setNavigationItemSelectedListener(this);
-        DbSqlServer dbSqlServer = new DbSqlServer();
-        Connection conn = dbSqlServer.openConnect();
 
+
+//        DbSqlServer dbSqlServer = new DbSqlServer();
+//        Connection conn = dbSqlServer.openConnect();
+//        SachDao sachDao=new SachDao();
+//        List<Sach> listCat = sachDao.getAll(); // lấy danh sách cho vào biến
+//
+//        // duyệt mảng in ra danh sách
+//        for(int i = 0; i<listCat.size(); i++){
+//            Sach objCat = listCat.get(i);
+//
+//            Log.d("zzzzz", "onCreate: phần tử thứ " + i + ":  id = " + objCat.getIdSach() + ", name = " + objCat.getTenSach());
+//
+//        }
 
     }
 

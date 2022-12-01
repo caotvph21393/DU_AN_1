@@ -1,4 +1,4 @@
-package cp17304_n3.fpoly.du_an_1.model;
+package cp17304_n3.fpoly.du_an_1.DTO;
 
 public class danh_sach_san_pham {
     private  String name;
