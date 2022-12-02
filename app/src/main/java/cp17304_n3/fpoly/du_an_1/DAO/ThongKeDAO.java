@@ -20,7 +20,7 @@ public class ThongKeDAO {
         int sumday=0;
         try {
             if(this.objConn!=null){
-                String sqlQuery="select sum(DonGia) as sumday from ChiTietHoaDon as cthd join DonHang as dh on cthd.idDonHang=dh.idDonHang where  dh.ThoiGian like '"+ngay+"' group by dh.ThoiGian";
+                String sqlQuery="select sum(DonGia) as sumday from ChiTietHoaDon as cthd join HoaDon as dh on cthd.idHoaDon=dh.idHoaDon where  dh.ThoiGian like '"+ngay+"' group by dh.ThoiGian";
                 Statement statement=this.objConn.createStatement();// khởi tạo cấu trúc truy vấn
 
                 ResultSet resultSet=statement.executeQuery(sqlQuery);// thực thi câu lệnh truy vấn
@@ -40,7 +40,7 @@ public class ThongKeDAO {
         int summouth=0;
         try {
             if(this.objConn!=null){
-                String sqlQuery="select sum(DonGia) as summonth from ChiTietHoaDon as cthd join DonHang as dh on cthd.idDonHang=dh.idDonHang where month(dh.ThoiGian)="+thang+" group by month(dh.ThoiGian)";
+                String sqlQuery="select sum(DonGia) as summonth from ChiTietHoaDon as cthd join HoaDon as dh on cthd.idHoaDon=dh.idHoaDon where month(dh.ThoiGian)="+thang+" group by month(dh.ThoiGian)";
                 Statement statement=this.objConn.createStatement();// khởi tạo cấu trúc truy vấn
 
                 ResultSet resultSet=statement.executeQuery(sqlQuery);// thực thi câu lệnh truy vấn
@@ -60,7 +60,7 @@ public class ThongKeDAO {
         int soHoaDonNgay=0;
         try {
             if(this.objConn!=null){
-                String sqlQuery="select count(idDonHang) as sodonhangngay from DonHang where  ThoiGian like '"+ngay+"' group by ThoiGian";
+                String sqlQuery="select count(idHoaDon) as sodonhangngay from HoaDon where  ThoiGian like '"+ngay+"' group by ThoiGian";
                 Statement statement=this.objConn.createStatement();// khởi tạo cấu trúc truy vấn
 
                 ResultSet resultSet=statement.executeQuery(sqlQuery);// thực thi câu lệnh truy vấn
@@ -79,7 +79,7 @@ public class ThongKeDAO {
         int soHoaDonThang=0;
         try {
             if(this.objConn!=null){
-                String sqlQuery="select count(idDonHang) as sodonhangthang from DonHang where  month(ThoiGian)="+thang+" group by month(ThoiGian)";
+                String sqlQuery="select count(idHoaDon) as sodonhangthang from HoaDon where  month(ThoiGian)="+thang+" group by month(ThoiGian)";
                 Statement statement=this.objConn.createStatement();// khởi tạo cấu trúc truy vấn
 
                 ResultSet resultSet=statement.executeQuery(sqlQuery);// thực thi câu lệnh truy vấn
@@ -101,7 +101,7 @@ public class ThongKeDAO {
         int soLuongSachDaBan=0;
         try {
             if(this.objConn!=null){
-                String sqlQuery="select sum(cthd.SoLuong) as sumsoluong from ChiTietHoaDon as cthd join DonHang as dh on cthd.idDonHang=dh.idDonHang where  dh.ThoiGian like '"+ngay+"' group by dh.ThoiGian";
+                String sqlQuery="select sum(cthd.SoLuong) as sumsoluong from ChiTietHoaDon as cthd join HoaDon as dh on cthd.idHoaDon=dh.idHoaDon where  dh.ThoiGian like '"+ngay+"' group by dh.ThoiGian";
                 Statement statement=this.objConn.createStatement();// khởi tạo cấu trúc truy vấn
 
                 ResultSet resultSet=statement.executeQuery(sqlQuery);// thực thi câu lệnh truy vấn
