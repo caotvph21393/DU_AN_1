@@ -29,9 +29,6 @@ public class ThongKe extends Fragment {
 
     public static Fragment newInstance() {
         ThongKe fragment = new ThongKe();
-
-
-
         return fragment;
     }
 
