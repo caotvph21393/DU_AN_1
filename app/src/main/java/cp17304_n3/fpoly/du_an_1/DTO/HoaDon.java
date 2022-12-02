@@ -4,7 +4,8 @@ import java.util.Date;
 
 public class HoaDon {
     int idHoaDon;
-    int idUser;
+    int idKH;
+    int idNV;
     Date ThoiGian;
     String TrangThai;
 
@@ -16,12 +17,20 @@ public class HoaDon {
         this.idHoaDon = idHoaDon;
     }
 
-    public int getIdUser() {
-        return idUser;
+    public int getIdKH() {
+        return idKH;
     }
 
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
+    public void setIdKH(int idKH) {
+        this.idKH = idKH;
+    }
+
+    public int getIdNV() {
+        return idNV;
+    }
+
+    public void setIdNV(int idNV) {
+        this.idNV = idNV;
     }
 
     public Date getThoiGian() {

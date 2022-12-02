@@ -5,6 +5,24 @@ public class Sach {
     int idNxb;
     String tenSach;
     int gia;
+    String moTa;
+    String linkAnh;
+
+    public String getLinkAnh() {
+        return linkAnh;
+    }
+
+    public void setLinkAnh(String linkAnh) {
+        this.linkAnh = linkAnh;
+    }
+
+    public String getMoTa() {
+        return moTa;
+    }
+
+    public void setMoTa(String moTa) {
+        this.moTa = moTa;
+    }
 
     public int getIdSach() {
         return idSach;

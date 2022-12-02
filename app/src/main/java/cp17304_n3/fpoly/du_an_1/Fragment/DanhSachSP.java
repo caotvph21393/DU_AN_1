@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
@@ -22,6 +23,7 @@ import java.util.TimerTask;
 
 import cp17304_n3.fpoly.du_an_1.DAO.SachDao;
 import cp17304_n3.fpoly.du_an_1.DTO.Sach;
+import cp17304_n3.fpoly.du_an_1.Datbase.DbSqlServer;
 import cp17304_n3.fpoly.du_an_1.R;
 import cp17304_n3.fpoly.du_an_1.adapter.Photo_Adapter;
 import cp17304_n3.fpoly.du_an_1.adapter.danhsachsp_adapter;
@@ -65,6 +67,8 @@ public class DanhSachSP extends Fragment {
     private List<Photo> list_photo;
     private Timer timer;
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -93,13 +97,18 @@ public class DanhSachSP extends Fragment {
 
         autoSLideImages();
         SachDao sachDao=new SachDao();
-        List<Sach> list=new ArrayList<>();
-        list=sachDao.getAll();
-        for(int i = 0; i<list.size(); i++){
-            Sach objCat = list.get(i);
+        List<Sach> listCat = sachDao.getAll(); // lấy danh sách cho vào biến
+
+        // duyệt mảng in ra danh sách
+        for(int i = 0; i<listCat.size(); i++){
+            Sach objCat = listCat.get(i);
+
             Log.d("zzzzz", "onCreate: phần tử thứ " + i + ":  id = " + objCat.getIdSach() + ", name = " + objCat.getTenSach());
 
         }
+
+
+
 
     }
 
@@ -124,7 +133,6 @@ public class DanhSachSP extends Fragment {
         list.add(new danh_sach_san_pham("Cuộc sống 'đếch' giống cuộc đời", R.drawable.cuoc_song, 23000));
         list.add(new danh_sach_san_pham("Bạn mới là chủ nhân cuộc đời mình", R.drawable.ban_moi_la_chu_nhan_cua_doi_minh, 35000));
     }
-
     private void autoSLideImages(){
 
         if(list_photo == null || list_photo.isEmpty() || id_viewpager == null){

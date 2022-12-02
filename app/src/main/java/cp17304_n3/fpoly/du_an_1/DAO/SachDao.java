@@ -33,9 +33,11 @@ try {
 
             Sach objCat = new Sach();
             objCat.setIdSach(resultSet.getInt("idSach")); // truyền tên cột dữ liệu
-            objCat.setGia(resultSet.getInt("GiaTien"));
+            objCat.setLinkAnh(resultSet.getString("linkAnh"));
+            objCat.setGia(resultSet.getInt("giaTien"));
+            objCat.setMoTa(resultSet.getString("moTa"));
             objCat.setIdNxb(resultSet.getInt("idNXB"));
-            objCat.setTenSach(resultSet.getString("TenSach")); // tên cột dữ liệu là name
+            objCat.setTenSach(resultSet.getString("tenSach")); // tên cột dữ liệu là name
             list.add(objCat);
             //Log.e("aa","ok");
         }

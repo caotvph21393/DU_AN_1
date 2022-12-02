@@ -14,41 +14,45 @@ import cp17304_n3.fpoly.du_an_1.DTO.HoaDon;
 import cp17304_n3.fpoly.du_an_1.Datbase.DbSqlServer;
 
 public class HoaDonDao {
-Connection connection;
-
-    public HoaDonDao() {
-        DbSqlServer dbSqlServer=new DbSqlServer();
-        connection=dbSqlServer.openConnect();
+    Connection objConn;
+    public HoaDonDao(){
+        // hàm khởi tạo để mở kết nối
+        DbSqlServer db = new DbSqlServer();
+        objConn = db.openConnect(); // tạo mới DAO thì mở kết nối CSDL
     }
     public List<HoaDon> getAll(){
-List<HoaDon> list=new ArrayList<HoaDon>();
-try {
-    if (this.connection != null) {
+        List<HoaDon> listCat = new ArrayList<HoaDon>();
 
-        String sqlQuery = "SELECT * FROM HoaDon";
+        try {
+            if (this.objConn != null) {
 
-        Statement statement = this.connection.createStatement(); // khởi tạo cấu trúc truy vấn
+                String sqlQuery = "SELECT * FROM HoaDon ";
 
-        ResultSet resultSet = statement.executeQuery(sqlQuery); // thực thi câu lệnh truy vấn
+                Statement statement = this.objConn.createStatement(); // khởi tạo cấu trúc truy vấn
 
-        while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
+                ResultSet resultSet = statement.executeQuery(sqlQuery); // thực thi câu lệnh truy vấn
 
-            HoaDon objCat = new HoaDon();
-            objCat.setIdHoaDon(resultSet.getInt("idHoaDon")); // truyền tên cột dữ liệu
-            objCat.setIdUser(resultSet.getInt("idUser")); // tên cột dữ liệu là name
-            objCat.setThoiGian(resultSet.getDate("ThoiGian"));
-            objCat.setTrangThai(resultSet.getString("TrangThai"));
-            list.add(objCat);
-            Log.e("aaa","ok");
+                while (resultSet.next()) { // đọc dữ liệu gán vào đối tượng và đưa vào list
+
+                    HoaDon objCat = new HoaDon();
+                    objCat.setIdHoaDon(resultSet.getInt("idHoaDon")); // truyền tên cột dữ liệu
+                    objCat.setIdKH(resultSet.getInt("idKH")); // tên cột dữ liệu là name
+                    objCat.setIdNV(resultSet.getInt("idNV"));
+                    objCat.setThoiGian(resultSet.getDate("ThoiGian"));
+                    objCat.setTrangThai(resultSet.getString("TrangThai"));
+                    listCat.add(objCat);
+                    Log.e("aaa","ok");
+                }
+            } // nếu kết nối khác null thì mới select và thêm dữ liệu vào, nếu không thì trả về ds rỗng
+
+
+
+        } catch (Exception e) {
+            Log.e("zzzzzzzzzz", "getAll: Có lỗi truy vấn dữ liệu " );
+            e.printStackTrace();
         }
-    }
-} catch (SQLException e) {
-    Log.e("aaaa","loi");
-    e.printStackTrace();
 
-}
-
-return list;
+        return  listCat;
     }
 
 //    public void insertRow (HoaDon objCat){
