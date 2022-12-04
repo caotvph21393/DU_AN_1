@@ -1,6 +1,8 @@
 package cp17304_n3.fpoly.du_an_1.adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,38 +11,48 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+
+import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.List;
 
 import cp17304_n3.fpoly.du_an_1.DTO.giohang;
 import cp17304_n3.fpoly.du_an_1.R;
 
-public class GioHang_Adapter extends BaseAdapter {
-    private ArrayList<giohang>arrayList = new ArrayList<giohang>();
-    private Context context;
+public class GioHang_Adapter  extends BaseAdapter{
+    private ArrayList<giohang>arrayList ;
+    private Context mContext;
+    public GioHang_Adapter(Context mContext) {
+        this.mContext = mContext;
 
-    public GioHang_Adapter(Context context) {
-    this.context = context;
     }
-    public void setData(ArrayList<giohang>arrayList){
-        this.arrayList = arrayList;
-        notifyDataSetChanged();
-    }
-    public static class ViewHolder{
-        private ImageView imgDelete,imgAvataBook;
-        private TextView tvTenSach,tvMoTaSach;
-    }
+    public void setData(ArrayList<giohang>array){
 
+        this.arrayList  = array;
+        notifyDataSetChanged();//mỗi khi truyền arr khác sẽ refresh lại
+    }
+    public static class myViewHoder{
+        //chứa tất cả các view có trong layout_item
+        private ImageView imgAvata;
+        private TextView tvTenSp,tvGiaSp;
+
+    }
     @Override
     public int getCount() {
         if (arrayList!=null)
-
+            //trả về độ dài của mảng dữ liệu
             return arrayList.size();
         return 0;
     }
 
     @Override
     public Object getItem(int position) {
-        return null;
+
+        return 0;
     }
 
     @Override
@@ -50,31 +62,29 @@ public class GioHang_Adapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        myViewHoder hoder=null;
+        //
+        LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        ViewHolder viewHolder = null;
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
         if (convertView==null){
-            convertView = inflater.inflate(R.layout.giohang_listview_custom,null);
-            viewHolder =new ViewHolder();
-            viewHolder.imgAvataBook = convertView.findViewById(R.id.imgAvataBook);
-            viewHolder.imgDelete = convertView.findViewById(R.id.imgDelete);
-            viewHolder.tvTenSach = convertView.findViewById(R.id.tvTenSach);
-            viewHolder.tvMoTaSach = convertView.findViewById(R.id.tvMoTaSach);
-            convertView.setTag(viewHolder);
+            //gom layout_item thành 1 view để gắn cho convertView
+            convertView=inflater.inflate(R.layout.giohang_listview_custom,null);
+            hoder=new myViewHoder();
+            //
+            hoder.imgAvata = convertView.findViewById(R.id.item_giohang_image);
+            hoder.tvTenSp = convertView.findViewById(R.id.item_giohang_tensp);
+            hoder.tvGiaSp = convertView.findViewById(R.id.item_giohang_giasp);
+
+            convertView.setTag(hoder);//túi
+
         }else {
-            viewHolder = (ViewHolder) convertView.getTag();
-
+            hoder = (myViewHoder) convertView.getTag();
         }
-        viewHolder.tvTenSach.setText(arrayList.get(position).getTenSach());
-        viewHolder.tvMoTaSach.setText(arrayList.get(position).getMoTaSach());
-        viewHolder.imgAvataBook.setImageResource(arrayList.get(position).getAvataBook());
+        hoder.imgAvata.setImageResource(arrayList.get(position).getAvataBook());
+        hoder.tvTenSp.setText(arrayList.get(position).getTenSach());
+        hoder.tvGiaSp.setText(arrayList.get(position).getGiaSach());
 
-        viewHolder.imgDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context, "đã xóa", Toast.LENGTH_SHORT).show();
-            }
-        });
 
         return convertView;
     }
