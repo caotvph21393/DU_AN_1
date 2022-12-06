@@ -11,6 +11,7 @@
     <!-- TODO: Update blank fragment layout -->
 
     <TextView
+        android:id="@+id/tv_title_signup"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="50dp"
         android:textSize="30sp"
@@ -41,6 +42,7 @@
                 android:layout_height="30dp"/>
 
             <EditText
+                android:id="@+id/edt_signup_username"
                 android:layout_marginTop="10dp"
                 android:textStyle="bold"
                 android:gravity="center_horizontal"
@@ -75,6 +77,7 @@
                 android:layout_height="30dp"/>
 
             <EditText
+                android:id="@+id/edt_signup_email"
                 android:layout_marginTop="10dp"
                 android:textStyle="bold"
                 android:gravity="center_horizontal"
@@ -125,7 +128,6 @@
 <!--                android:layout_height="30dp"/>-->
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/etPasswordLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:passwordToggleEnabled="true">
@@ -133,7 +135,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:textSize="16sp"
                     android:backgroundTint="#CDF0EA"
-                    android:id="@+id/etPassword"
+                    android:id="@+id/etPassword_signup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Nhập password"
@@ -190,7 +192,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:textSize="16sp"
                     android:backgroundTint="#CDF0EA"
-                    android:id="@+id/etPassword"
+                    android:id="@+id/etPassword_re_signup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Nhập lại password"
@@ -210,6 +212,7 @@
         android:backgroundTint="#CDF0EA">
 
         <Button
+            android:id="@+id/btn_signup"
             android:layout_marginLeft="100dp"
             android:textColor="@color/black"
             android:backgroundTint="#59C1BD"
