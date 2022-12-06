@@ -4,16 +4,24 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import cp17304_n3.fpoly.du_an_1.DAO.gioHangDAO;
 import cp17304_n3.fpoly.du_an_1.DTO.giohang;
+import cp17304_n3.fpoly.du_an_1.Datbase.DbSqlServer;
 import cp17304_n3.fpoly.du_an_1.R;
 import cp17304_n3.fpoly.du_an_1.adapter.GioHang_Adapter;
 
@@ -23,10 +31,10 @@ import cp17304_n3.fpoly.du_an_1.adapter.GioHang_Adapter;
  * create an instance of this fragment.
  */
 public class GioHang extends Fragment {
-    private ListView lv_GioHang;
+    private Button btnMuaHang;
+    private ListView mlistView;
     private ArrayList<giohang> arrayList = new ArrayList<>();
     private GioHang_Adapter adapter;
-
 
     public GioHang() {
         // Required empty public constructor
@@ -56,14 +64,16 @@ public class GioHang extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        lv_GioHang = view.findViewById(R.id.lv_GioHang);
-
-        arrayList.add(new giohang("a","a",R.drawable.ic_baseline_menu_book_24));
-        arrayList.add(new giohang("b","b",R.drawable.ic_baseline_menu_book_24));
-
-
-        adapter = new GioHang_Adapter(getContext());
+        mlistView = view.findViewById(R.id.lv);
+        btnMuaHang = view.findViewById(R.id.btnMuaHang);
+        giohang user3 = new giohang();
+        user3.setTenSach("Đắc Nhân Tâm");
+        user3.setGiaSach("50000đ");
+        user3.setAvataBook(R.drawable.dacnhantam);
+        arrayList.add(user3);
+        adapter= new GioHang_Adapter(getContext());
         adapter.setData(arrayList);
-        lv_GioHang.setAdapter(adapter);
+        mlistView.setAdapter(adapter);
+
     }
 }

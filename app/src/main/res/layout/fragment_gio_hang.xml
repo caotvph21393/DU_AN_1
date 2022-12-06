@@ -1,13 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment.GioHang"
     android:orientation="vertical">
 
-    <ListView
-        android:id="@+id/lv_GioHang"
+
+    <TextView
+        android:id="@+id/tvTitle"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-</LinearLayout>
+        android:layout_height="wrap_content"
+        android:background="#4CAF50"
+        android:gravity="center"
+        android:text="Giỏ Hàng"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <ListView
+
+        android:id="@+id/lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tvTitle"
+        android:layout_marginTop="1dp">
+    </ListView>
+    <Button
+        android:layout_alignBottom="@+id/lv"
+        android:id="@+id/btnMuaHang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mua Hàng"
+        android:textSize="30dp" />
+
+</RelativeLayout>

@@ -1,16 +1,18 @@
 package cp17304_n3.fpoly.du_an_1.DTO;
 
 public class giohang {
-    private String tenSach,moTaSach;
+    private String tenSach,giaSach;
     private int AvataBook;
+    private int idsp;
     public giohang() {
 
     }
 
-    public giohang(String tenSach, String moTaSach, int avataBook) {
+    public giohang(String tenSach, String giaSach, int avataBook, int idsp) {
         this.tenSach = tenSach;
-        this.moTaSach = moTaSach;
-        AvataBook = avataBook;
+        this.giaSach = giaSach;
+      this.AvataBook = avataBook;
+        this.idsp = idsp;
     }
 
     public String getTenSach() {
@@ -21,13 +23,14 @@ public class giohang {
         this.tenSach = tenSach;
     }
 
-    public String getMoTaSach() {
-        return moTaSach;
+    public String getGiaSach() {
+        return giaSach;
     }
 
-    public void setMoTaSach(String moTaSach) {
-        this.moTaSach = moTaSach;
+    public void setGiaSach(String giaSach) {
+        this.giaSach = giaSach;
     }
+
 
     public int getAvataBook() {
         return AvataBook;
@@ -35,5 +38,13 @@ public class giohang {
 
     public void setAvataBook(int avataBook) {
         AvataBook = avataBook;
+    }
+
+    public int getIdsp() {
+        return idsp;
+    }
+
+    public void setIdsp(int idsp) {
+        this.idsp = idsp;
     }
 }
