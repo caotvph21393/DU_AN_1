@@ -1,10 +1,13 @@
 package cp17304_n3.fpoly.du_an_1.DTO;
 
-public class Sach {
+import java.io.Serializable;
+
+public class Sach implements Serializable {
     int idSach;
     int idNxb;
     String tenSach;
     int gia;
+
     String moTa;
     String linkAnh;
 

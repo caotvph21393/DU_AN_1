@@ -1,5 +1,6 @@
 package cp17304_n3.fpoly.du_an_1.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -9,26 +10,26 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.os.Handler;
 import android.os.Looper;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.GridView;
 import android.widget.ListView;
 
-import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import cp17304_n3.fpoly.du_an_1.ChiTietSachActivity;
 import cp17304_n3.fpoly.du_an_1.DAO.SachDao;
 import cp17304_n3.fpoly.du_an_1.DTO.Sach;
-import cp17304_n3.fpoly.du_an_1.Datbase.DbSqlServer;
+import cp17304_n3.fpoly.du_an_1.MainActivity;
 import cp17304_n3.fpoly.du_an_1.R;
 import cp17304_n3.fpoly.du_an_1.adapter.Photo_Adapter;
 import cp17304_n3.fpoly.du_an_1.adapter.danhsachsp_adapter;
 import cp17304_n3.fpoly.du_an_1.DTO.Photo;
-import cp17304_n3.fpoly.du_an_1.DTO.danh_sach_san_pham;
 import me.relex.circleindicator.CircleIndicator;
 
 
@@ -38,7 +39,8 @@ import me.relex.circleindicator.CircleIndicator;
  * create an instance of this fragment.
  */
 public class DanhSachSP extends Fragment {
-
+    GridView gridViewtrangchu;
+    private List<Sach> list=new ArrayList<>();
 
 
     public DanhSachSP() {
@@ -57,8 +59,8 @@ public class DanhSachSP extends Fragment {
 
     }
 
-    private ListView id_lv_danhsachsp;
-    private ArrayList<danh_sach_san_pham> list = new ArrayList<>();
+
+
     private danhsachsp_adapter adapter ;
 
     private ViewPager id_viewpager;
@@ -79,14 +81,27 @@ public class DanhSachSP extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        id_lv_danhsachsp = view.findViewById(R.id.id_lv_danhsachsp);
+        gridViewtrangchu=view.findViewById(R.id.gvtrangchu);
+
+
         id_viewpager = view.findViewById(R.id.id_viewpager);
        circle_indiacator = view.findViewById(R.id.circle_indiacator);
 
-        Themsp();
+        SachDao sachDao=new SachDao();
+         list = sachDao.getAll();
 
-        adapter = new danhsachsp_adapter(getActivity(),R.layout.layout_item_danhsachsp, list);
-        id_lv_danhsachsp.setAdapter(adapter);
+        danhsachsp_adapter adapter=new danhsachsp_adapter(list,getContext());
+        gridViewtrangchu.setAdapter(adapter);
+        registerForContextMenu(gridViewtrangchu);
+        gridViewtrangchu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Sach sach=list.get(position);
+                Intent intent=new Intent(getContext(), ChiTietSachActivity.class);
+                intent.putExtra("chitietsanpham",sach);
+                startActivity(intent);
+            }
+        });
 
         list_photo = getListPhoto();
         photo_adapter = new Photo_Adapter(getActivity(),list_photo);
@@ -96,16 +111,16 @@ public class DanhSachSP extends Fragment {
         photo_adapter.registerDataSetObserver(circle_indiacator.getDataSetObserver());
 
         autoSLideImages();
-        SachDao sachDao=new SachDao();
-        List<Sach> listCat = sachDao.getAll(); // lấy danh sách cho vào biến
+//        SachDao sachDao=new SachDao();
+//        List<Sach> list = sachDao.getAll(); // lấy danh sách cho vào biến
 
-        // duyệt mảng in ra danh sách
-        for(int i = 0; i<listCat.size(); i++){
-            Sach objCat = listCat.get(i);
-
-            Log.d("zzzzz", "onCreate: phần tử thứ " + i + ":  id = " + objCat.getIdSach() + ", name = " + objCat.getTenSach());
-
-        }
+//        // duyệt mảng in ra danh sách
+//        for(int i = 0; i<listCat.size(); i++){
+//            Sach objCat = listCat.get(i);
+//
+//            Log.d("zzzzz", "onCreate: phần tử thứ " + i + ":  id = " + objCat.getIdSach() + ", name = " + objCat.getTenSach());
+//
+//        }
 
 
 
@@ -124,14 +139,7 @@ public class DanhSachSP extends Fragment {
     }
 
     private void Themsp(){
-        list.add(new danh_sach_san_pham("sóng", R.drawable.song, 20000));
-        list.add(new danh_sach_san_pham("doraemon", R.drawable.doraemon_1, 30000));
-        list.add(new danh_sach_san_pham("công tắc tình yêu", R.drawable.ngon_tinh_2, 40000));
-        list.add(new danh_sach_san_pham("đắc nhân tâm", R.drawable.dacnhantam, 50000));
-        list.add(new danh_sach_san_pham("sóng", R.drawable.song, 60000));
-        list.add(new danh_sach_san_pham("vì em gặp anh", R.drawable.ngon_tinh_1, 88000));
-        list.add(new danh_sach_san_pham("Cuộc sống 'đếch' giống cuộc đời", R.drawable.cuoc_song, 23000));
-        list.add(new danh_sach_san_pham("Bạn mới là chủ nhân cuộc đời mình", R.drawable.ban_moi_la_chu_nhan_cua_doi_minh, 35000));
+
     }
     private void autoSLideImages(){
 

@@ -81,14 +81,14 @@
                             android:layout_height="wrap_content"
                             app:passwordToggleEnabled="true">
 
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:textSize="18sp"
-                                android:backgroundTint="#CDF0EA"
-                                android:id="@+id/etPassword"
+                            <EditText
+                                android:id="@+id/edtPassword"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:backgroundTint="#CDF0EA"
                                 android:hint="Nhập password"
-                                android:inputType="textPassword"/>
+                                android:inputType="textPassword"
+                                android:textSize="18sp" />
                         </com.google.android.material.textfield.TextInputLayout>
 
 <!--            <EditText-->
@@ -143,6 +143,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:text="Đăng Nhập"
+        android:id="@+id/btndangnhap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 

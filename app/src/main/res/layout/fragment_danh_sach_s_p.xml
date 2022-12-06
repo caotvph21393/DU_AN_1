@@ -22,11 +22,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"/>
-
-    <ListView
-        android:layout_marginTop="10dp"
-        android:id="@+id/id_lv_danhsachsp"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:layout_marginLeft="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:text="Sản Phẩm nổi bật"/>
+
+
+    <GridView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:numColumns="2"
+        android:id="@+id/gvtrangchu"/>
 
 </LinearLayout>

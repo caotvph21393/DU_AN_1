@@ -1,18 +1,26 @@
 package cp17304_n3.fpoly.du_an_1.Fragment;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
+import cp17304_n3.fpoly.du_an_1.DAO.GioHangDAO;
+import cp17304_n3.fpoly.du_an_1.DAO.KhachHangDAO;
+import cp17304_n3.fpoly.du_an_1.DTO.Sach;
+import cp17304_n3.fpoly.du_an_1.DTO.User;
 import cp17304_n3.fpoly.du_an_1.DTO.giohang;
 import cp17304_n3.fpoly.du_an_1.R;
 import cp17304_n3.fpoly.du_an_1.adapter.GioHang_Adapter;
@@ -23,9 +31,10 @@ import cp17304_n3.fpoly.du_an_1.adapter.GioHang_Adapter;
  * create an instance of this fragment.
  */
 public class GioHang extends Fragment {
-    private ListView lv_GioHang;
-    private ArrayList<giohang> arrayList = new ArrayList<>();
-    private GioHang_Adapter adapter;
+    GioHangDAO gioHangDAO;
+    RecyclerView recyclerGioHang;
+    ArrayList<Sach> list;
+    User user= new User();
 
 
     public GioHang() {
@@ -50,20 +59,36 @@ public class GioHang extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_gio_hang, container, false);
+        View view= inflater.inflate(R.layout.fragment_gio_hang, container, false);
+        recyclerGioHang=view.findViewById(R.id.rvgiohang);
+        //loadData();
+        return view;
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        lv_GioHang = view.findViewById(R.id.lv_GioHang);
+    private void loadData() {
 
-        arrayList.add(new giohang("a","a",R.drawable.ic_baseline_menu_book_24));
-        arrayList.add(new giohang("b","b",R.drawable.ic_baseline_menu_book_24));
+        KhachHangDAO khachHangDAO=new KhachHangDAO(getContext());
+        user=khachHangDAO.getThongTin();
 
+        gioHangDAO= new GioHangDAO();
+        int idKH=user.getIdUser();
+        list=gioHangDAO.getAllSachGioHang(String.valueOf(idKH));
+        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
+        recyclerGioHang.setLayoutManager(linearLayoutManager);
+        GioHang_Adapter adapter=new GioHang_Adapter(list,getContext());
+        recyclerGioHang.setAdapter(adapter);
 
-        adapter = new GioHang_Adapter(getContext());
-        adapter.setData(arrayList);
-        lv_GioHang.setAdapter(adapter);
     }
+    public void  receiveIdKH(int idKH){
+        gioHangDAO= new GioHangDAO();
+
+        list=gioHangDAO.getAllSachGioHang(String.valueOf(idKH));
+        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
+        recyclerGioHang.setLayoutManager(linearLayoutManager);
+        GioHang_Adapter adapter=new GioHang_Adapter(list,getContext());
+        recyclerGioHang.setAdapter(adapter);
+
+    }
+
+
 }

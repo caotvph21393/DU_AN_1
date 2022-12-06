@@ -1,5 +1,6 @@
 package cp17304_n3.fpoly.du_an_1.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,52 +9,63 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
+import cp17304_n3.fpoly.du_an_1.DTO.Sach;
 import cp17304_n3.fpoly.du_an_1.R;
-import cp17304_n3.fpoly.du_an_1.DTO.danh_sach_san_pham;
 
 public class danhsachsp_adapter extends BaseAdapter {
-
+    private List<Sach> list;
     private Context context;
-    private int layout;
-    private List<danh_sach_san_pham> danhsach_list;
 
-    public danhsachsp_adapter(Context context, int layout, List<danh_sach_san_pham> danhsach_list) {
+    public danhsachsp_adapter(List<Sach> list, Context context) {
+        this.list = list;
         this.context = context;
-        this.layout = layout;
-        this.danhsach_list = danhsach_list;
     }
 
     @Override
     public int getCount() {
-        return danhsach_list.size();
+        return list.size();
     }
 
     @Override
-    public Object getItem(int position) {return null;}
+    public Object getItem(int position) {
+        return list.get(position);
+    }
 
     @Override
-    public long getItemId(int position) {return 0;}
+    public long getItemId(int position) {
+        return position;
+    }
+    public static class viewHolder{
+        TextView txttensach,txtgiasach;
+        ImageView ivsach;
+
+    }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View view, ViewGroup parent) {
+        viewHolder holder;
+        LayoutInflater inflater=((Activity)context).getLayoutInflater();
+        if(view==null){
+            view=inflater.inflate(R.layout.layout_item_danhsachsp,null);
+            holder=new viewHolder();
+            holder.txtgiasach= view.findViewById(R.id.txtgiasach);
+            holder.txttensach= view.findViewById(R.id.txttensaxh);
+            holder.ivsach=view.findViewById(R.id.ivsach);
+            view.setTag(holder);
+        }else{
+            holder=(viewHolder) view.getTag();
+        }
 
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        Picasso.get().load(list.get(position).getLinkAnh()).into(holder.ivsach);
 
-        convertView = inflater.inflate(layout,null);
+        holder.txttensach.setText(list.get(position).getTenSach());
+        holder.txtgiasach.setText(list.get(position).getGia()+"");
 
-        // ánh xạ
-        ImageView img_danhsachsp_item = convertView.findViewById(R.id.img_danhsachsp_item);
-        TextView  tv_item_danhsach_name = convertView.findViewById(R.id.tv_item_danhsach_name);
-        TextView tv_danhsachsp_gia = convertView.findViewById(R.id.tv_danhsachsp_gia);
 
-        danh_sach_san_pham danh_sach_san_pham = danhsach_list.get(position);
-
-        img_danhsachsp_item.setImageResource(danh_sach_san_pham.getImg());
-        tv_item_danhsach_name.setText(danh_sach_san_pham.getName());
-        tv_danhsachsp_gia.setText(danh_sach_san_pham.getGia()+ "");
-
-        return convertView;
+        return view;
     }
 }

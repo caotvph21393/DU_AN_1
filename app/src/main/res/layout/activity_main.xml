@@ -22,10 +22,11 @@ tools:openDrawer="start"
                 android:id="@+id/id_toolbar">
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.AppBarLayout>
+
         <FrameLayout
+            android:id="@+id/id_frameLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/id_frameLayout"></FrameLayout>
+            android:layout_height="match_parent"></FrameLayout>
     </LinearLayout>
     <com.google.android.material.navigation.NavigationView
         android:layout_width="match_parent"
