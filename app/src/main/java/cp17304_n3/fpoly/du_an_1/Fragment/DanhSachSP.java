@@ -13,9 +13,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridView;
 import android.widget.ListView;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
@@ -67,6 +70,7 @@ public class DanhSachSP extends Fragment {
     private List<Photo> list_photo;
     private Timer timer;
 
+    private GridView gridView;
 
 
     @Override
@@ -80,6 +84,7 @@ public class DanhSachSP extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         id_lv_danhsachsp = view.findViewById(R.id.id_lv_danhsachsp);
+//        gridView = view.findViewById(R.id.gridview);
         id_viewpager = view.findViewById(R.id.id_viewpager);
        circle_indiacator = view.findViewById(R.id.circle_indiacator);
 
@@ -96,17 +101,16 @@ public class DanhSachSP extends Fragment {
         photo_adapter.registerDataSetObserver(circle_indiacator.getDataSetObserver());
 
         autoSLideImages();
-        SachDao sachDao=new SachDao();
-        List<Sach> listCat = sachDao.getAll(); // lấy danh sách cho vào biến
-
-        // duyệt mảng in ra danh sách
-        for(int i = 0; i<listCat.size(); i++){
-            Sach objCat = listCat.get(i);
-
-            Log.d("zzzzz", "onCreate: phần tử thứ " + i + ":  id = " + objCat.getIdSach() + ", name = " + objCat.getTenSach());
-
-        }
-
+//        SachDao sachDao=new SachDao();
+//        List<Sach> listCat = sachDao.getAll(); // lấy danh sách cho vào biến
+//
+//        // duyệt mảng in ra danh sách
+//        for(int i = 0; i<listCat.size(); i++){
+//            Sach objCat = listCat.get(i);
+//
+//            Log.d("zzzzz", "onCreate: phần tử thứ " + i + ":  id = " + objCat.getIdSach() + ", name = " + objCat.getTenSach());
+//
+//        }
 
 
 

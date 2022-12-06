@@ -43,7 +43,6 @@
             <EditText
                 android:id="@+id/id_edt_login"
                 android:layout_gravity="center_vertical"
-                android:textStyle="bold"
                 android:textSize="22sp"
                 android:background="@null"
                 android:layout_marginLeft="20dp"
@@ -76,7 +75,7 @@
                 android:layout_height="40dp"/>
 
                         <com.google.android.material.textfield.TextInputLayout
-                            android:id="@+id/etPasswordLayout"
+                            android:id="@+id/etPasswordLayout_login"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             app:passwordToggleEnabled="true">
@@ -84,7 +83,7 @@
                             <com.google.android.material.textfield.TextInputEditText
                                 android:textSize="18sp"
                                 android:backgroundTint="#CDF0EA"
-                                android:id="@+id/etPassword"
+                                android:id="@+id/etPassword_login"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="Nhập password"
@@ -122,6 +121,7 @@
         android:orientation="horizontal">
 
         <CheckBox
+            android:id="@+id/chk_login"
             android:layout_marginLeft="30dp"
             android:layout_gravity="center"
             android:layout_width="60dp"
@@ -138,6 +138,7 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/btn_login"
         android:backgroundTint="#CDF0EA"
         android:textColor="@color/black"
         android:layout_gravity="center_horizontal"
